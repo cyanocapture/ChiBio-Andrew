@@ -1424,11 +1424,7 @@ def I2CCom(M,device,rw,hl,data1,data2,SMBUSFLAG):
     
     global sysDevices
     if(sysData[M]['present']==0): #Something stupid has happened in software if this is the case!
-        print(str(datetime.now()) + ' Trying to communicate with absent device - bug in software!. Disabling hardware and software!')
-        sysItems['Watchdog']['ON']=0 #Basically this will crash all the electronics and the software. 
-        out=0
-        tries=-1
-        os._exit(4)
+        print(str(datetime.now()) + ' Unable to communicate with absent device - dont worry - not gonna shut everything off!')
     
     #cID=str(M)+str(device)+'d'+str(data1)+'d'+str(data2)  # This is an ID string for the communication that we are trying to send - not used at present
     #Any time a thread gets to this point it will wait until the lock is free. Then, only one thread at a time will advance. 
